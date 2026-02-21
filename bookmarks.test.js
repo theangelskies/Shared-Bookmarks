@@ -6,7 +6,7 @@ import {
   addBookmark,
   likeBookmark,
 } from "./bookmarks.js";
-import { getUserIds } from "./storage.js";
+import { getUserIds, getData, clearData } from "./storage.js";
 
 test("User count is correct", () => {
   assert.equal(getUserIds().length, 5);
