@@ -9,3 +9,8 @@ test("getUsers returns 5 users", () => {
   const users = getUsers();
   assert.equal(users.length, 5);
 });
+test("getBookmarks returns empty array for new user", () => {
+  clearData(TEST_USER);
+  const bookmarks = getBookmarks(TEST_USER);
+  assert.deepEqual(bookmarks, []);
+});
