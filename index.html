@@ -1,45 +1,49 @@
-<!DOCTYPE html>
-<html lang="eng">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A.Y.I SHARED BOOKMARK</title>
   </head>
   <body>
-    <h1 class="main-title">A.Y.I SHARED BOOKMARK</h1>
-    <!--DROPDOWN PERSON B-->
-  <div class="user-dropdown">
-    <label for="user-select">Select User:</label>
-    <select name="user-id" id="user-select">
-      <option value="all">--Pick A User--</option>
-    </select>
-  </div>
-  </div>
-    <!--FORM PERSON B-->
-    <form class="bookmark-form">
-      <div class="form-group">
-        <label for="title">Title:</label>
-        <input type="text" id="title" required/>
+    <header>
+      <h1 class="main-title">A.Y.I SHARED BOOKMARK</h1>
+    </header>
+    <main>
+      <!--DROPDOWN PERSON B-->
+      <div class="user-dropdown">
+        <label for="user-select">Select User:</label>
+        <select name="user-id" id="user-select">
+          <option value="all" disabled selected>--Pick A User--</option>
+        </select>
       </div>
-      <div class="form-group">
-        <label for="url">URL:</label>
-        <input type="url" id="url" required/>
-      </div>
-      <div class="form-group">
-        <label for="description">Description:</label>
-        <input type="text" id="description" required/>
-      </div>
-      <div class="bookmark-form" >
-        <input type ="submit" value="Add Bookmark">
-      </div>
-    </form>
-    <footer>
-      <p>&copy; 2026 A.Y.I SHARED BOOKMARK, GROUP PROJECT. All rights reserved.</p>
-    </footer>
+      <!--FORM PERSON B-->
+      <form class="bookmark-form">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form-group">
+          <label for="url">URL:</label>
+          <input type="url" id="url" name="url" required />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Add Bookmark</button>
+        </div>
+      </form>
 
-    <!-- BOOKMARK LIST PERSON C-->
-    <div id="bookmark-list"></div>
-    
+      <!-- BOOKMARK LIST PERSON C-->
+      <div id="bookmark-list"></div>
+    </main>
     <script type="module" src="script.js"></script>
+    <footer>
+      <p>
+        &copy; 2026 A.Y.I SHARED BOOKMARK, GROUP PROJECT. All rights reserved.
+      </p>
+    </footer>
   </body>
 </html>
