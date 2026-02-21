@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A.Y.I BOOKMARK</title>
+    <title>A.Y.I SHARED BOOKMARK</title>
   </head>
   <body>
-    <h1 class="main-title">A.Y.I BOOKMARK</h1>
+    <h1 class="main-title">A.Y.I SHARED BOOKMARK</h1>
     <!--DROPDOWN PERSON B-->
   <div class="user-dropdown">
     <label for="user-select">Select User:</label>
@@ -16,18 +16,26 @@
   </div>
   </div>
     <!--FORM PERSON B-->
-    <form id="bookmark-form">
-      <label for="input-title">Title</label>
-      <input type="text" id="input-title" required/>
-
-      <label for="input-url">URL</label>
-      <input type="url" id="input-url" required/>
-
-      <label for="input-desc">Description</label>
-      <input type="text" id="input-desc" required/>
-    
-      <button type ="submit">Add Bookmark</button>
+    <form class="bookmark-form">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" required/>
+      </div>
+      <div class="form-group">
+        <label for="url">URL:</label>
+        <input type="url" id="url" required/>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" id="description" required/>
+      </div>
+      <div class="bookmark-form" >
+        <input type ="submit" value="Add Bookmark">
+      </div>
     </form>
+    <footer>
+      <p>&copy; 2026 A.Y.I SHARED BOOKMARK, GROUP PROJECT. All rights reserved.</p>
+    </footer>
 
     <!-- BOOKMARK LIST PERSON C-->
     <div id="bookmark-list"></div>
