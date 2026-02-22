@@ -84,16 +84,6 @@ function handleUserSelection() {
 // - call getBookmarks() again to get the fresh list
 // - pass fresh list to renderBookmarks()
 // ============================================
-window.addEventListener("DOMContentLoaded", () => {
-  populateDropdown();
-  handleUserSelection();
-  handleFormSubmit();
-});
-
-// ============================================
-// TASK B-4: page load
-// - call populateDropdown() when the page first loads
-// ==========================================
 function handleFormSubmit() {
   const form = document.getElementById("bookmark-form");
   const dropdown = document.getElementById("user-select");
@@ -120,7 +110,17 @@ function handleFormSubmit() {
 
     // Reload updated bookmarks
     const updatedBookmarks = getBookmarks(userId);
-
-    renderBookmarks(updatedBookmarks);
+    console.log(`Updated bookmarks for User ${userId}:`, updatedBookmarks);
+    //renderBookmarks(updatedBookmarks);
   });
 }
+
+// ============================================
+// TASK B-4: page load
+// - call populateDropdown() when the page first loads
+// ==========================================
+window.addEventListener("DOMContentLoaded", () => {
+  populateDropdown();
+  handleUserSelection();
+  handleFormSubmit();
+});
