@@ -2,15 +2,6 @@
 // You can't open the index.html file using a file:// URL.
 
 import { getUserIds, getData } from "./storage.js";
-
-// ============================================
-// PERSON B — YOUR RESPONSIBILITY IS THIS FILE
-// ============================================
-// Your job: listen for events → call the right functions
-// You do NOT write data logic
-// You do NOT write HTML rendering
-// ============================================
-
 import { addBookmark, getBookmarks } from "./bookmarks.js";
 //import { renderBookmarks } from "./render.js";
 
@@ -52,6 +43,7 @@ function handleUserSelection() {
 
   dropdownSelect.addEventListener("change", (event) => {
     const userId = event.target.value;
+
     if (userId) {
       form.style.display = "block";
       const bookmarks = getBookmarks(userId);
@@ -62,7 +54,8 @@ function handleUserSelection() {
       } else {
         //renderBookmarks(bookmarks);
         console.log(`Bookmarks for User ${userId}:`, bookmarks);
-      } else {
+      }
+    } else {
       form.style.display = "none";
       //renderBookmarks([]);
       console.log("No user selected");
