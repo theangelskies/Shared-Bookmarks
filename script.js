@@ -14,8 +14,8 @@ import { getUserIds, getData } from "./storage.js";
 // You do NOT write HTML rendering
 // ============================================
 
-import { getUsers, addBookmark, getBookmarks } from "./bookmarks.js";
-import { renderBookmarks } from "./render.js";
+import { addBookmark, getBookmarks } from "./bookmarks.js";
+//import { renderBookmarks } from "./render.js";
 
 // ============================================
 // TASK B-1: populateDropdown()
@@ -27,8 +27,9 @@ import { renderBookmarks } from "./render.js";
 // ============================================
 function populateDropdown() {
   const dropdownSelect = document.getElementById("user-select");
-  const userIds = getUsers();
+  dropdownSelect.innerHTML = '<option value="">Select a user</option>'; // default option
 
+  const userIds = getUserIds();
   userIds.forEach((userId) => {
     const option = document.createElement("option");
     option.value = userId;
@@ -50,25 +51,27 @@ function populateDropdown() {
 // ============================================
 function handleUserSelection() {
   const dropdownSelect = document.getElementById("user-select");
+  const form = document.getElementById("bookmark-form");
+
   dropdownSelect.addEventListener("change", (event) => {
     const userId = event.target.value;
-    const form = document.getElementById("bookmark-form");
     if (userId) {
       form.style.display = "block";
-    const bookmarks = getBookmarks(userId);
+      const bookmarks = getBookmarks(userId);
 
-    if (!bookmarks || bookmarks.length === 0) {
-      renderBookmarks([]);
-    } else {
-      renderBookmarks(bookmarks);
+      if (!bookmarks || bookmarks.length === 0) {
+        //renderBookmarks([]);
+        console.log("No bookmarks for this user");
+      } else {
+        //renderBookmarks(bookmarks);
+        console.log(`Bookmarks for User ${userId}:`, bookmarks);
+      } else {
+      form.style.display = "none";
+      //renderBookmarks([]);
+      console.log("No user selected");
     }
-  };
-});
-
-window.addEventListener("DOMContentLoaded", () => {
-  populateDropdown();
-  handleUserSelection();
-});
+  });
+}
 
 // ============================================
 // TASK B-3: form submit event
@@ -81,8 +84,43 @@ window.addEventListener("DOMContentLoaded", () => {
 // - call getBookmarks() again to get the fresh list
 // - pass fresh list to renderBookmarks()
 // ============================================
+window.addEventListener("DOMContentLoaded", () => {
+  populateDropdown();
+  handleUserSelection();
+  handleFormSubmit();
+});
 
 // ============================================
 // TASK B-4: page load
 // - call populateDropdown() when the page first loads
 // ==========================================
+function handleFormSubmit() {
+  const form = document.getElementById("bookmark-form");
+  const dropdown = document.getElementById("user-select");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault(); // STOP page refresh
+
+    const userId = dropdown.value;
+
+    if (!userId) {
+      alert("Please select a user first.");
+      return;
+    }
+
+    const url = document.getElementById("url").value;
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+
+    // Add bookmark
+    addBookmark(userId, url, title, description);
+
+    // Reset form fields
+    form.reset();
+
+    // Reload updated bookmarks
+    const updatedBookmarks = getBookmarks(userId);
+
+    renderBookmarks(updatedBookmarks);
+  });
+}
