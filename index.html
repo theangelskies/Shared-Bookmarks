@@ -1,33 +1,56 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>The Bookmarks</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A.Y.I SHARED BOOKMARK</title>
   </head>
   <body>
-    <h1>The Bookmarks</h1>
-    <!--DROPDOWN PERSON B-->
-    <label for="user-select">Select User:</label>
-    <select id="user-select">
-      <option value="">-- Pick A User --</option>
-    </select>
+    <header class="website-header">
+      <div class="website-name">
+        <h1 class="main-title">A.Y.I SHARED BOOKMARK</h1>
+      </div>
 
-    <!--FORM PERSON B-->
-    <form id="bookmark-form">
-      <label for="input-title">Title</label>
-      <input type="text" id="input-title" required/>
+      <nav class="navigations">
+        <a href="#About">About</a>
+        <a href="#Contact">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <!--DROPDOWN PERSON B-->
+      <div class="user-dropdown">
+        <label for="user-select">Select User:</label>
+        <select name="user-id" id="user-select">
+          <option value="" disabled selected>-- Pick A User --</option>
+        </select>
+      </div>
+      <!--FORM PERSON B-->
+      <form id="bookmark-form" class="bookmark-form">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form-group">
+          <label for="url">URL:</label>
+          <input type="url" id="url" name="url" required />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Add Bookmark</button>
+        </div>
+      </form>
 
-      <label for="input-url">URL</label>
-      <input type="url" id="input-url" required/>
-
-      <label for="input-desc">Description</label>
-      <input type="text" id="input-desc" required/>
-    
-      <button type ="submit">Add Bookmark</button>
-    </form>
-
-    <!-- BOOKMARK LIST PERSON C-->
-    <div id="bookmark-list"></div>
-    
+      <!-- BOOKMARK LIST PERSON C-->
+      <div id="bookmark-list"></div>
+    </main>
     <script type="module" src="script.js"></script>
+    <footer>
+      <p>
+        &copy; 2026 A.Y.I SHARED BOOKMARK, GROUP PROJECT. All rights reserved.
+      </p>
+    </footer>
   </body>
 </html>
