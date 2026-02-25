@@ -3,7 +3,7 @@
 
 import { getUserIds, getData } from "./storage.js";
 import { addBookmark, getBookmarks } from "./bookmarks.js";
-//import { renderBookmarks } from "./render.js";
+import { renderBookmarks } from "./render.js";
 
 // ============================================
 // TASK B-1: populateDropdown()
