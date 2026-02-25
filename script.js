@@ -3,7 +3,7 @@
 
 import { getUserIds, getData } from "./storage.js";
 import { addBookmark, getBookmarks } from "./bookmarks.js";
-//import { renderBookmarks } from "./render.js";
+import { renderBookmarks } from "./render.js";
 
 // ============================================
 // TASK B-1: populateDropdown()
@@ -49,15 +49,15 @@ function handleUserSelection() {
       const bookmarks = getBookmarks(userId);
 
       if (!bookmarks || bookmarks.length === 0) {
-        //renderBookmarks([]);
+        renderBookmarks([]);
         console.log("No bookmarks for this user");
       } else {
-        //renderBookmarks(bookmarks);
+        renderBookmarks(bookmarks);
         console.log(`Bookmarks for User ${userId}:`, bookmarks);
       }
     } else {
       form.style.display = "none";
-      //renderBookmarks([]);
+      renderBookmarks([]);
       console.log("No user selected");
     }
   });
@@ -101,7 +101,7 @@ function handleFormSubmit() {
     // Reload updated bookmarks
     const updatedBookmarks = getBookmarks(userId);
     console.log(`Updated bookmarks for User ${userId}:`, updatedBookmarks);
-    //renderBookmarks(updatedBookmarks);
+    renderBookmarks(updatedBookmarks);
   });
 }
 
