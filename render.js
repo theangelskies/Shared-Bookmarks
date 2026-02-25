@@ -20,53 +20,64 @@ import { likeBookmark, getBookmarks } from "./bookmarks.js";
 
 const bookmarkList = document.getElementById("bookmark-list");
 
-// ============================================
 // TASK C-1: formatDate(isoString)
-// - receives a date string like "2026-02-19T10:32:00.000Z"
-// - return a human readable string like "Feb 19, 2026, 10:32 AM"
-// - hint: look up toLocaleString()
-// ============================================
-function formatDate(isoString) {}
+function formatDate(isoString) {
+  return new Date(isoString).toLocaleString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
 
-// ============================================
 // TASK C-2: renderBookmarks(bookmarks)
-// - this function is called by Person B with an array of bookmarks
-// - first clear the current #bookmark-list contents
-// - if the array is empty, show a "No bookmarks yet" message and stop
-// - if array has items, loop over them
-// - for each bookmark call createBookmarkCard()
-// - append each card to #bookmark-list
-// - remember to export this function so Person B can import it
-// ============================================
-function renderBookmarks(bookmarks) {}
+export function renderBookmarks(bookmarks) {
+  bookmarkList.innerHTML = "";
 
-// ============================================
+  if (bookmarks.length === 0) {
+    bookmarkList.innerHTML = "<p>No bookmarks yet.</p>";
+    return;
+  }
+
+  bookmarks.forEach((bookmark) => {
+    const card = createBookmarkCard(bookmark);
+    bookmarkList.appendChild(card);
+  });
+}
+
 // TASK C-3: createBookmarkCard(bookmark)
-// - create an <article> element for one bookmark
-// - inside it must include ALL of the following:
-//     title as a clickable <a href> link (opens in new tab)
-//     description as a paragraph
-//     createdAt inside a <time> tag (use datetime attribute)
-//     a like button showing the current like count
-//     a copy URL button
-// - return the article element
-// - hint: use innerHTML or createElement
-// ============================================
-function createBookmarkCard(bookmark) {}
+function createBookmarkCard(bookmark) {
+  const article = document.createElement("article");
+  article.innerHTML = `
+    <h2><a href= "${bookmark.url}" target="_blank" rel="noopener">${bookmark.title}</a></h2>
+    <p>${bookmark.description}</p>
+    <time datetime="${bookmark.createdAt}">${formatDate(bookmark.createdAt)}</time>
+    <div class="actions">
+      <button class="like-btn">Like 💗<span class="like-count">${bookmark.likes}</span></button>
+      <button class="copy-btn">Copy URL 🔗</button>
+    </div>
+    `;
 
-// ============================================
-// TASK C-4: copy URL button behaviour
-// - when clicked, copy the bookmark's url to clipboard
-// - hint: look up navigator.clipboard.writeText()
-// - optionally change button text to "Copied!" for 2 seconds
-//   then reset back to original text
-// ============================================
+  const copyBtn = article.querySelector(".copy-btn");
+  const likeBtn = article.querySelector(".like-btn");
+  const likeCount = article.querySelector(".like-count");
 
-// ============================================
-// TASK C-5: like button behaviour
-// - when clicked, call likeBookmark(userId, bookmark.id)
-// - userId comes from reading #user-select value from the DOM
-// - after liking, call getBookmarks(userId) to get fresh data
-// - call renderBookmarks() again to update the display
-// - the like count must persist after page refresh
-// ============================================
+  // TASK C-4: copy URL button behaviour
+  copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(bookmark.url).then(() => {
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => (copyBtn.textContent = "Copy URL 🔗"), 2000);
+    });
+  });
+
+  // TASK C-5: like button behaviour
+  likeBtn.addEventListener("click", async () => {
+    const userId = document.getElementById("user-select").value;
+    await likeBookmark(userId, bookmark.id);
+    const updated = await getBookmarks(userId);
+    renderBookmarks(updated);
+  });
+
+  return article;
+}
