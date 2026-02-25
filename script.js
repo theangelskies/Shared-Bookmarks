@@ -49,16 +49,16 @@ function handleUserSelection() {
       const bookmarks = getBookmarks(userId);
 
       if (!bookmarks || bookmarks.length === 0) {
-        //renderBookmarks([]);
-        console.log("No bookmarks for this user");
+        renderBookmarks([]);
+        //console.log("No bookmarks for this user");
       } else {
-        //renderBookmarks(bookmarks);
-        console.log(`Bookmarks for User ${userId}:`, bookmarks);
+        renderBookmarks(bookmarks);
+        //console.log(`Bookmarks for User ${userId}:`, bookmarks);
       }
     } else {
       form.style.display = "none";
-      //renderBookmarks([]);
-      console.log("No user selected");
+      renderBookmarks([]);
+      //console.log("No user selected");
     }
   });
 }
@@ -100,8 +100,8 @@ function handleFormSubmit() {
 
     // Reload updated bookmarks
     const updatedBookmarks = getBookmarks(userId);
-    console.log(`Updated bookmarks for User ${userId}:`, updatedBookmarks);
-    //renderBookmarks(updatedBookmarks);
+    //console.log(`Updated bookmarks for User ${userId}:`, updatedBookmarks);
+    renderBookmarks(updatedBookmarks);
   });
 }
 
