@@ -7,9 +7,16 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <!-- HEADER -->
     <header class="website-header">
-      <div class="website-name">
         <h1 class="main-title">A.Y.I SHARED BOOKMARK</h1>
+
+        <!--DROPDOWN -->
+      <div class="user-selector">
+        <label for="user-select">Viewing as</label>
+        <select name="user-id" id="user-select">
+          <option value="" disabled selected>-- Pick A User --</option>
+        </select>
       </div>
 
       <nav class="navigations">
@@ -19,14 +26,8 @@
     </header>
     <main>
       
-      <!--DROPDOWN PERSON B-->
-      <div class="user-dropdown">
-        <label for="user-select">Select User:</label>
-        <select name="user-id" id="user-select">
-          <option value="" disabled selected>-- Pick A User --</option>
-        </select>
-      </div>
-      <!--FORM PERSON B-->
+      
+      <!--FORM-->
       <form id="bookmark-form" class="bookmark-form">
         <div class="form-group">
           <label for="title">Title:</label>
@@ -45,7 +46,7 @@
         </div>
       </form>
 
-      <!-- BOOKMARK LIST PERSON C-->
+      <!-- BOOKMARK LIST-->
       <div id="bookmark-list"></div>
     </main>
     <script type="module" src="script.js"></script>

@@ -16,6 +16,8 @@
   /* Fonts */
   --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-heading: 'Arial Black', sans-serif;
+  --nav-font-size: 1rem;
+  --nav-font-weight: 500;
 
   /* Spacing */
   --space-xs: 4px;
@@ -63,6 +65,42 @@ h1,h2 {
 
 .website-header .main-title {
     font-size: 1.8rem;
+}
+
+.user-selector{
+    display:flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--header-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-md);
+}
+    
+.user-selector label {
+    font-size: var(--nav-font-size);
+    font-weight: var(--nav-font-weight);
+    color: var(--header-text);
+    text-transform:uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.user-selector select {
+    background: transparent;
+    border: none;
+    color: var(--header-text);
+    font-family: var(--font-main);
+    font-size: var(--nav-font-size);
+    font-weight:(--nav-font-weight);
+    cursor:pointer;
+    outline:none;
+    min-width:140px;
+}
+
+.user-selector select option {
+  background: var(--header-bg); 
+  color: var(--header-text);
 }
 
 .navigations a {
