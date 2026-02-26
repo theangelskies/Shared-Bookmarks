@@ -1,0 +1,166 @@
+  /* VARIABLES */
+:root {
+  /* Colors */
+  --primary-color: #4a90e2; 
+  --secondary-color: #f5f5f5;  
+  --text-color: #333333;      
+  --header-bg: #222222;         
+  --header-text: #ffffff;     
+  --button-bg: #4a90e2;        
+  --button-text: #ffffff;
+  --button-hover: #357ABD;
+  --card-bg: #ffffff;           
+  --card-border: #ddd; 
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+  /* Fonts */
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: 'Arial Black', sans-serif;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Border radius */
+  --radius: 8px;
+}
+
+  /* BASE STYLE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+h1,h2 {
+    font-family: var(--font-heading);
+    color: var(--header-text);
+}
+
+  /* HEADER */
+.website-header {
+    background-color: var(--header-bg);
+    padding: var(--space-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.website-header .main-title {
+    font-size: 1.8rem;
+}
+
+.navigations a {
+    color: var(--header-text);
+    margin-left: var(--space-md);
+    transition: color 0.3s;
+}
+
+.navigations a:hover {
+    color: var(--primary-color);
+}
+
+/* FORM */
+.bookmark-form {
+    backgroud-color: var(--card-bg);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin: var(--space-lg) auto;
+    max-width: 600px;
+}
+
+.bookmark-form .form-group {
+    margin-bottom: var(--space-md);
+}
+
+.bookmark-form label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: bold;
+}
+
+.bookmark-form input, .bookmark-form textarea, .bookmark-form select {
+    width: 100%;
+    padding: var(--space-sm);
+    border-radius: var(--radius);
+    border: 1px solid #ccc;
+    font-family: var(--font-main);
+}
+
+.bookmark-form button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bookmark-form button:hover {
+    background-color: var(--button-hover);
+}
+
+/* BOOKMARK CARD */
+#bookmark-list article {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    margin: var(--space-md) auto;
+    max-width: 600px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+#bookmark-list h2 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-xs);
+}
+
+#bookmark-list p {
+    margin-bottom: var(--space-sm);
+}
+
+.actions {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.actions button {
+    background-color: var(--primary-color);
+    color: var(--button-text);
+    border: none;
+    border-radius: var(--radius);
+    padding: var(--space-xs) var(--space-sm);
+    cursor:pointer;
+    transition: background-color 0.3s;
+}
+
+.actions button:hover {
+    background-color: var(--button-hover);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: var(--space-md);
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    margin-top: var(--space-lg);
+}

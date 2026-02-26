@@ -36,7 +36,8 @@ export function renderBookmarks(bookmarks) {
   bookmarkList.innerHTML = "";
 
   if (bookmarks.length === 0) {
-    bookmarkList.innerHTML = "<p>No bookmarks yet.</p>";
+    bookmarkList.innerHTML =
+      "<p>💗 No bookmarks yet. Start saving your favorite links!</p>";
     return;
   }
 
