@@ -40,6 +40,7 @@ function populateDropdown() {
 function handleUserSelection() {
   const dropdownSelect = document.getElementById("user-select");
   const form = document.getElementById("bookmark-form");
+  const bookmarkList = document.getElementById("bookmark-list");
 
   dropdownSelect.addEventListener("change", (event) => {
     const userId = event.target.value;
@@ -50,15 +51,12 @@ function handleUserSelection() {
 
       if (!bookmarks || bookmarks.length === 0) {
         renderBookmarks([]);
-        console.log("No bookmarks for this user");
       } else {
         renderBookmarks(bookmarks);
-        console.log(`Bookmarks for User ${userId}:`, bookmarks);
       }
     } else {
       form.style.display = "none";
       renderBookmarks([]);
-      console.log("No user selected");
     }
   });
 }
@@ -104,7 +102,7 @@ function handleFormSubmit() {
 
     // Reload updated bookmarks
     const updatedBookmarks = getBookmarks(userId);
-    console.log(`Updated bookmarks for User ${userId}:`, updatedBookmarks);
+
     renderBookmarks(updatedBookmarks);
   });
 

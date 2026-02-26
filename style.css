@@ -47,6 +47,14 @@ body {
 a {
     text-decoration: none;
     color: var(--primary-color);
+    font-family: var(--font-main);
+    font-weight: 500;
+    transition: color 0.3s, transform 0.2s;
+}
+
+a:hover {
+    color: var(--button-hover);
+    transform: scale(1.05);
 }
 
 h1,h2 {

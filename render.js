@@ -38,7 +38,7 @@ export function renderBookmarks(bookmarks) {
   if (bookmarks.length === 0) {
     const noBookmarkMsg = document.createElement("p");
     noBookmarkMsg.textContent =
-      "💗 No bookmarks yet. Start saving your favorite links!";
+      "💗 No bookmarks yet. Select a user above to get started and create bookmark NOW!";
     noBookmarkMsg.classList.add("no-bookmarks");
     bookmarkList.appendChild(noBookmarkMsg);
     return;
