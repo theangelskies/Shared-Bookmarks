@@ -9,7 +9,7 @@
   <body>
     <!-- HEADER -->
     <header class="website-header">
-        <h1 class="main-title">A.Y.I SHARED BOOKMARK</h1>
+      <h1 class="main-title">A.Y.I SHARED BOOKMARK</h1>
 
         <!--DROPDOWN -->
       <div class="user-selector">
@@ -28,6 +28,8 @@
       
       
       <!--FORM-->
+      <button id="toggle-form"> ➕ Create New Bookmark</button>
+      <div id="form-container" class="hidden">
       <form id="bookmark-form" class="bookmark-form">
         <div class="form-group">
           <label for="title">Title:</label>
@@ -45,6 +47,7 @@
           <button type="submit">Add Bookmark</button>
         </div>
       </form>
+      </div>
 
       <!-- BOOKMARK LIST-->
       <div id="bookmark-list"></div>

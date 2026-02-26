@@ -103,6 +103,13 @@ function handleFormSubmit() {
     console.log(`Updated bookmarks for User ${userId}:`, updatedBookmarks);
     renderBookmarks(updatedBookmarks);
   });
+
+  // toggleBtn
+  const toggleBtn = document.getElementById("toggle-btn");
+  const formContainer = document.getElementById("form-container");
+  toggleBtn.addEventListener("click", () => {
+    formContainer.classList.toggle("hidden");
+  });
 }
 
 // ============================================

@@ -114,6 +114,15 @@ h1,h2 {
 }
 
 /* FORM */
+.toggle-btn {
+    background-color: var(--header-bg);
+    
+}
+
+.hidden{
+    display:none;
+}
+
 .bookmark-form {
     backgroud-color: var(--card-bg);
     padding: var(--space-lg);
