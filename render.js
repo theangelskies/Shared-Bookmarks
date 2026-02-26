@@ -36,8 +36,11 @@ export function renderBookmarks(bookmarks) {
   bookmarkList.innerHTML = "";
 
   if (bookmarks.length === 0) {
-    bookmarkList.innerHTML =
-      "<p>💗 No bookmarks yet. Start saving your favorite links!</p>";
+    const noBookmarkMsg = document.createElement("p");
+    noBookmarkMsg.textContent =
+      "💗 No bookmarks yet. Start saving your favorite links!";
+    noBookmarkMsg.classList.add("no-bookmarks");
+    bookmarkList.appendChild(noBookmarkMsg);
     return;
   }
 

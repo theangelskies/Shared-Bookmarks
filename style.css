@@ -181,6 +181,18 @@ h1,h2 {
     background-color: var(--button-hover);
 }
 
+
+
+/* No Bookmark Reminder*/
+.no-bookmarks {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin: var(--space-lg) 0;
+    animation: pulse 1.5s infinite;
+}
+
 /* BOOKMARK CARD */
 #bookmark-list article {
     background-color: var(--card-bg);
