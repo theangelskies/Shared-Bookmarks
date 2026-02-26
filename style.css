@@ -1,16 +1,16 @@
   /* VARIABLES */
 :root {
   /* Colors */
-  --primary-color: #4a90e2; 
-  --secondary-color: #f5f5f5;  
-  --text-color: #333333;      
-  --header-bg: #222222;         
+  --primary-color: #e2529a; 
+  --secondary-color: #ffffff;  
+  --text-color: #333333;;      
+  --header-bg: #111111;         
   --header-text: #ffffff;     
-  --button-bg: #4a90e2;        
+  --button-bg: #e2529a;        
   --button-text: #ffffff;
-  --button-hover: #357ABD;
-  --card-bg: #ffffff;           
-  --card-border: #ddd; 
+  --button-hover: #c0397e;
+  --card-bg: #fff5fa;
+  --card-border: #ffd6ea; 
   --shadow-color: rgba(0, 0, 0, 0.1);
 
   /* Fonts */
@@ -68,13 +68,12 @@ h1,h2 {
 }
 
 .user-selector{
-    display:flex;
-    align-items: center;
-    gap: var(--space-sm);
-    background: var(--header-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border: none;                  
+  border-radius: var(--radius);
+  padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-md);
 }
     
 .user-selector label {
@@ -87,12 +86,12 @@ h1,h2 {
 }
 
 .user-selector select {
-    background: transparent;
+    background: var(--primary-color);  
     border: none;
     color: var(--header-text);
     font-family: var(--font-main);
     font-size: var(--nav-font-size);
-    font-weight:(--nav-font-weight);
+    font-weight:var(--nav-font-weight);
     cursor:pointer;
     outline:none;
     min-width:140px;
@@ -141,12 +140,13 @@ h1,h2 {
 }
 
 .bookmark-form {
-    backgroud-color: var(--card-bg);
+    background-color: var(--card-border);
     padding: var(--space-lg);
     border-radius: var(--radius);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     margin: var(--space-lg) auto;
     max-width: 600px;
+     
 }
 
 .bookmark-form .form-group {
@@ -202,15 +202,35 @@ h1,h2 {
     margin: var(--space-md) auto;
     max-width: 600px;
     box-shadow: 0 2px 4px var(--shadow-color);
+    gap: var(--space-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#bookmark-list article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(226, 82, 154, 0.2);
 }
 
 #bookmark-list h2 {
+  color: var(--primary-color);
   font-size: 1.2rem;
   margin-bottom: var(--space-xs);
 }
 
+#bookmark-list .shared-by {
+    font-size: 0.85rem;
+    font-style:italic;
+    margin-bottom:var(--space-xs);
+}
+
 #bookmark-list p {
     margin-bottom: var(--space-sm);
+}
+
+#bookmark-list time {
+    font-size:0.85rem;
+    font-style: italic;
+    margin-bottom:var(--space-xs);
 }
 
 .actions {
@@ -226,6 +246,8 @@ h1,h2 {
     padding: var(--space-xs) var(--space-sm);
     cursor:pointer;
     transition: background-color 0.3s;
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
 .actions button:hover {
@@ -239,4 +261,9 @@ footer {
     background-color: var(--header-bg);
     color: var(--header-text);
     margin-top: var(--space-lg);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
 }
