@@ -42,3 +42,9 @@ export function likeBookmark(userId, bookmarkId) {
 
   setData(userId, updated);
 }
+
+export function deleteBookmark(userId, bookmarkId) {
+  const bookmarks = getData(userId) || [];
+  const updated = bookmarks.filter((b) => b.id !== bookmarkId);
+  localStorage.setItem(`stored-data-user-${userId}`, JSON.stringify(updated));
+}

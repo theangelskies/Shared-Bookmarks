@@ -74,6 +74,10 @@ function handleUserSelection() {
 // - call getBookmarks() again to get the fresh list
 // - pass fresh list to renderBookmarks()
 // ============================================
+function generateId() {
+  return Date.now() + Math.floor(Math.random() * 1000);
+}
+
 function handleFormSubmit() {
   const form = document.getElementById("bookmark-form");
   const dropdown = document.getElementById("user-select");
@@ -92,8 +96,17 @@ function handleFormSubmit() {
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
 
+    const newBookmark = {
+      id: generateId(),
+      url,
+      title,
+      description,
+      createdAt: new Date().toISOString(),
+      like: 0,
+    };
+
     // Add bookmark
-    addBookmark(userId, url, title, description);
+    addBookmark(userId, newBookmark);
 
     // Reset form fields
     form.reset();

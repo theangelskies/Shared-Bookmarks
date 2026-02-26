@@ -16,7 +16,7 @@
 // }
 // ============================================
 
-import { likeBookmark, getBookmarks } from "./bookmarks.js";
+import { likeBookmark, getBookmarks, deleteBookmark } from "./bookmarks.js";
 
 const bookmarkList = document.getElementById("bookmark-list");
 
@@ -53,19 +53,23 @@ export function renderBookmarks(bookmarks) {
 // TASK C-3: createBookmarkCard(bookmark)
 function createBookmarkCard(bookmark) {
   const article = document.createElement("article");
+  const userId = document.getElementById("user-select").value;
   article.innerHTML = `
     <h2><a href= "${bookmark.url}" target="_blank" rel="noopener">${bookmark.title}</a></h2>
+    <p class="shared-by">Shared by User ${userId}</p>
     <p>${bookmark.description}</p>
     <time datetime="${bookmark.createdAt}">${formatDate(bookmark.createdAt)}</time>
     <div class="actions">
       <button class="like-btn">Like 💗<span class="like-count">${bookmark.likes}</span></button>
       <button class="copy-btn">Copy URL 🔗</button>
+      <button class="delete-btn">Delete 🗑️</button>
     </div>
     `;
 
   const copyBtn = article.querySelector(".copy-btn");
   const likeBtn = article.querySelector(".like-btn");
   const likeCount = article.querySelector(".like-count");
+  const deleteBtn = article.querySelector(".delete-btn");
 
   // TASK C-4: copy URL button behaviour
   copyBtn.addEventListener("click", () => {
@@ -81,6 +85,17 @@ function createBookmarkCard(bookmark) {
     await likeBookmark(userId, bookmark.id);
     const updated = await getBookmarks(userId);
     renderBookmarks(updated);
+  });
+
+  // TASK C-6: delete button behaviour
+  deleteBtn.addEventListener("click", async () => {
+    const confirmed = confirm(
+      `Delete "${bookmark.title}"? This cannot be undone.`,
+    );
+    if (confirmed) {
+      deleteBookmark(userId, bookmark.id);
+      article.remove();
+    }
   });
 
   return article;
