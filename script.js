@@ -96,17 +96,8 @@ function handleFormSubmit() {
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
 
-    const newBookmark = {
-      id: generateId(),
-      url,
-      title,
-      description,
-      createdAt: new Date().toISOString(),
-      like: 0,
-    };
-
     // Add bookmark
-    addBookmark(userId, newBookmark);
+    const bookmark = addBookmark(userId, url, title, description);
 
     // Reset form fields
     form.reset();
