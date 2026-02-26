@@ -109,6 +109,12 @@ function handleFormSubmit() {
   const formContainer = document.getElementById("form-container");
   toggleBtn.addEventListener("click", () => {
     formContainer.classList.toggle("hidden");
+
+    if (formContainer.classList.contains("hidden")) {
+      toggleBtn.textContent = "👇 Create New Bookmark";
+    } else {
+      toggleBtn.textContent = "👆 Hide Bookmark Form";
+    }
   });
 }
 
