@@ -309,4 +309,5 @@ footer {
     display: inline-block;
     color: var(--primary-color);
     font-weight: bold;
+    margin-bottom: var(--space-lg);
 }
