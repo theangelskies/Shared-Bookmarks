@@ -275,3 +275,21 @@ footer {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.4; }
 }
+.about-main {
+    max-width: 800px;
+    margin: var(--space-xl) auto;
+    padding: var(--space-lg);
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-family: var(--font-main);
+}
+.about-main h1 {
+    text-align: center;
+    color: var(--header-bg);
+    margin-bottom: var(--space-lg);
+}
+.about-main p {
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+}
