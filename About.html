@@ -2,13 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>About A.Y.I SHARED BOOKMARK</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About A.Y.I SHARED BOOKMARK</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <a href="index.html">← Back to Home</a>
+    <header class="website-header">
+      <h1 class="main-title">
+        <a href="#" id="home-link">A.Y.I SHARED BOOKMARK</a>
+      </h1>
+
+      <!--DROPDOWN -->
+      <div class="user-selector">
+        <label for="user-select">Viewing as</label>
+        <select name="user-id" id="user-select">
+          <option value="" disabled selected>-- Pick A User --</option>
+        </select>
+      </div>
+
+      <nav class="navigations">
+        <a href="about.html">
+          <button type="button">About</button>
+        </a>
+        <a href="contact.html"><button type="button">Contact</button></a>
+      </nav>
+    </header>
 
     <main class="about-main">
       <h1>ABOUT A.Y.I SHARED BOOKMARK</h1>
