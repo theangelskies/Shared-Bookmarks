@@ -77,7 +77,10 @@ h2 {
 .website-header .main-title {
   font-size: 1.8rem;
 }
-
+.main-title {
+  font-weight: 900;
+  font-weight: var(--font-heading);
+}
 .user-selector {
   display: flex;
   align-items: center;
@@ -287,27 +290,45 @@ footer {
   }
 }
 .about-main {
-    max-width: 800px;
-    margin: var(--space-xl) auto;
-    padding: var(--space-lg);
-    background-color: var(--card-bg);
-    border-radius: var(--radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: var(--font-main);
+  max-width: 800px;
+  margin: var(--space-xl) auto;
+  padding: var(--space-lg);
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-main);
 }
 .about-main h1 {
-    text-align: center;
-    color: var(--header-bg);
-    margin-bottom: var(--space-lg);
+  text-align: center;
+  color: var(--header-bg);
+  margin-bottom: var(--space-lg);
 }
 .about-main p {
-    text-align: justify;
-    margin-bottom: var(--space-md);
-    line-height: 1.8;
+  text-align: justify;
+  margin-bottom: var(--space-md);
+  line-height: 1.8;
 }
 .about-main a {
-    display: inline-block;
-    color: var(--primary-color);
-    font-weight: bold;
-    margin-bottom: var(--space-lg);
+  display: inline-block;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: var(--space-lg);
+}
+.navigations button {
+  background-color: var(--card-bg); /* light pink background */
+  color: var(--primary-color); /* bright pink text */
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-weight: 700;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+}
+
+.navigations button:hover {
+  background-color: var(--card-border); /* slightly darker pink on hover */
+  transform: scale(1.05);
 }
