@@ -1,0 +1,277 @@
+  /* VARIABLES */
+:root {
+  /* Colors */
+  --primary-color: #e2529a; 
+  --secondary-color: #ffffff;  
+  --text-color: #333333;;      
+  --header-bg: #111111;         
+  --header-text: #ffffff;     
+  --button-bg: #e2529a;        
+  --button-text: #ffffff;
+  --button-hover: #c0397e;
+  --card-bg: #fff5fa;
+  --card-border: #ffd6ea; 
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+  /* Fonts */
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: 'Arial Black', sans-serif;
+  --nav-font-size: 1rem;
+  --nav-font-weight: 500;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Border radius */
+  --radius: 8px;
+}
+
+  /* BASE STYLE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-family: var(--font-main);
+    font-weight: 500;
+    transition: color 0.3s, transform 0.2s;
+}
+
+a:hover {
+    color: var(--button-hover);
+    transform: scale(1.05);
+}
+
+h1,h2 {
+    font-family: var(--font-heading);
+    color: var(--header-text);
+}
+
+  /* HEADER */
+.website-header {
+    background-color: var(--header-bg);
+    padding: var(--space-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.website-header .main-title {
+    font-size: 1.8rem;
+}
+
+.user-selector{
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border: none;                  
+  border-radius: var(--radius);
+  padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-md);
+}
+    
+.user-selector label {
+    font-size: var(--nav-font-size);
+    font-weight: var(--nav-font-weight);
+    color: var(--header-text);
+    text-transform:uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.user-selector select {
+    background: var(--primary-color);  
+    border: none;
+    color: var(--header-text);
+    font-family: var(--font-main);
+    font-size: var(--nav-font-size);
+    font-weight:var(--nav-font-weight);
+    cursor:pointer;
+    outline:none;
+    min-width:140px;
+}
+
+.user-selector select option {
+  background: var(--header-bg); 
+  color: var(--header-text);
+}
+
+.navigations a {
+    color: var(--header-text);
+    margin-left: var(--space-md);
+    transition: color 0.3s;
+}
+
+.navigations a:hover {
+    color: var(--primary-color);
+}
+
+/* FORM */
+#toggle-btn {
+   background-color:var(--header-bg);
+   color: var(--header-text);
+   border:none;
+   margin:var(--space-md);
+   padding: var(--space-sm) var(--space-md);
+   font-family: var(--font-main);
+   font-size: 1rem;
+   border-radius: var(--radius);
+   cursor: pointer;
+   transition: background-color 0.3s, transform 0.2s;
+}
+
+#toggle-btn:hover {
+    background-color:var(--button-hover);
+    transform: scale(1.05);
+}
+
+#toggle-btn:active {
+    transform: scale(0.98);
+}
+
+.hidden{
+    display:none;
+}
+
+.bookmark-form {
+    background-color: var(--card-border);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin: var(--space-lg) auto;
+    max-width: 600px;
+     
+}
+
+.bookmark-form .form-group {
+    margin-bottom: var(--space-md);
+}
+
+.bookmark-form label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: bold;
+}
+
+.bookmark-form input, .bookmark-form textarea, .bookmark-form select {
+    width: 100%;
+    padding: var(--space-sm);
+    border-radius: var(--radius);
+    border: 1px solid #ccc;
+    font-family: var(--font-main);
+}
+
+.bookmark-form button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bookmark-form button:hover {
+    background-color: var(--button-hover);
+}
+
+
+
+/* No Bookmark Reminder*/
+.no-bookmarks {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin: var(--space-lg) 0;
+    animation: pulse 1.5s infinite;
+}
+
+/* BOOKMARK CARD */
+#bookmark-list article {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    margin: var(--space-md) auto;
+    max-width: 600px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    gap: var(--space-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#bookmark-list article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(226, 82, 154, 0.2);
+}
+
+#bookmark-list h2 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: var(--space-xs);
+}
+
+#bookmark-list .shared-by {
+    font-size: 0.85rem;
+    font-style:italic;
+    margin-bottom:var(--space-xs);
+}
+
+#bookmark-list p {
+    margin-bottom: var(--space-sm);
+}
+
+#bookmark-list time {
+    font-size:0.85rem;
+    font-style: italic;
+    margin-bottom:var(--space-xs);
+}
+
+.actions {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.actions button {
+    background-color: var(--primary-color);
+    color: var(--button-text);
+    border: none;
+    border-radius: var(--radius);
+    padding: var(--space-xs) var(--space-sm);
+    cursor:pointer;
+    transition: background-color 0.3s;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.actions button:hover {
+    background-color: var(--button-hover);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: var(--space-md);
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    margin-top: var(--space-lg);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}

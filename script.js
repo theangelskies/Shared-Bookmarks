@@ -40,6 +40,7 @@ function populateDropdown() {
 function handleUserSelection() {
   const dropdownSelect = document.getElementById("user-select");
   const form = document.getElementById("bookmark-form");
+  const bookmarkList = document.getElementById("bookmark-list");
 
   dropdownSelect.addEventListener("change", (event) => {
     const userId = event.target.value;
@@ -49,16 +50,16 @@ function handleUserSelection() {
       const bookmarks = getBookmarks(userId);
 
       if (!bookmarks || bookmarks.length === 0) {
-        renderBookmarks([]);
-        //console.log("No bookmarks for this user");
+        //renderBookmarks([]);
+        console.log("No bookmarks for this user");
       } else {
-        renderBookmarks(bookmarks);
-        //console.log(`Bookmarks for User ${userId}:`, bookmarks);
+        //renderBookmarks(bookmarks);
+        console.log(`Bookmarks for User ${userId}:`, bookmarks);
       }
     } else {
       form.style.display = "none";
-      renderBookmarks([]);
-      //console.log("No user selected");
+      //renderBookmarks([]);
+      console.log("No user selected");
     }
   });
 }
@@ -74,6 +75,10 @@ function handleUserSelection() {
 // - call getBookmarks() again to get the fresh list
 // - pass fresh list to renderBookmarks()
 // ============================================
+function generateId() {
+  return Date.now() + Math.floor(Math.random() * 1000);
+}
+
 function handleFormSubmit() {
   const form = document.getElementById("bookmark-form");
   const dropdown = document.getElementById("user-select");
@@ -93,15 +98,15 @@ function handleFormSubmit() {
     const description = document.getElementById("description").value;
 
     // Add bookmark
-    addBookmark(userId, url, title, description);
+    const bookmark = addBookmark(userId, url, title, description);
 
     // Reset form fields
     form.reset();
 
     // Reload updated bookmarks
     const updatedBookmarks = getBookmarks(userId);
-    //console.log(`Updated bookmarks for User ${userId}:`, updatedBookmarks);
-    renderBookmarks(updatedBookmarks);
+    console.log(`Updated bookmarks for User ${userId}:`, updatedBookmarks);
+    //renderBookmarks(updatedBookmarks);
   });
 }
 
