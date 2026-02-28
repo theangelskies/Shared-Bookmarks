@@ -1,26 +1,8 @@
-// ============================================
-// PERSON C — YOUR RESPONSIBILITY IS THIS FILE
-// ============================================
-// Your job: receive bookmark data → display it as HTML
-// You do NOT touch storage.js directly
-// You do NOT handle form or dropdown logic
-//
-// Each bookmark object you receive looks like this:
-// {
-//   id:          "1708342800000"
-//   url:         "https://example.com"
-//   title:       "Example Site"
-//   description: "A cool site"
-//   createdAt:   "2026-02-19T10:00:00Z"
-//   likes:       0
-// }
-// ============================================
-
 import { likeBookmark, getBookmarks, deleteBookmark } from "./bookmarks.js";
 
 const bookmarkList = document.getElementById("bookmark-list");
 
-// TASK C-1: formatDate(isoString)
+// Format ISO date to human-readable string
 function formatDate(isoString) {
   return new Date(isoString).toLocaleString("en-US", {
     year: "numeric",
@@ -31,31 +13,31 @@ function formatDate(isoString) {
   });
 }
 
-// TASK C-2: renderBookmarks(bookmarks)
-export function renderBookmarks(bookmarks) {
+// Render all bookmarks
+export function renderBookmarks(bookmarks, userId) {
   bookmarkList.innerHTML = "";
 
   if (bookmarks.length === 0) {
-    const noBookmarkMsg = document.createElement("p");
-    noBookmarkMsg.textContent =
+    const msg = document.createElement("p");
+    msg.classList.add("no-bookmarks");
+    msg.textContent =
       "💗 No bookmarks yet. Select a user above to get started and create bookmark NOW!";
-    noBookmarkMsg.classList.add("no-bookmarks");
-    bookmarkList.appendChild(noBookmarkMsg);
+    bookmarkList.appendChild(msg);
     return;
   }
 
   bookmarks.forEach((bookmark) => {
-    const card = createBookmarkCard(bookmark);
+    const card = createBookmarkCard(bookmark, userId);
     bookmarkList.appendChild(card);
   });
 }
 
-// TASK C-3: createBookmarkCard(bookmark)
-function createBookmarkCard(bookmark) {
+// Create a single bookmark card
+function createBookmarkCard(bookmark, userId) {
   const article = document.createElement("article");
-  const userId = document.getElementById("user-select").value;
+
   article.innerHTML = `
-    <h2><a href= "${bookmark.url}" target="_blank" rel="noopener">${bookmark.title}</a></h2>
+    <h2><a href="${bookmark.url}" target="_blank" rel="noopener">${bookmark.title}</a></h2>
     <p class="shared-by">Shared by User ${userId}</p>
     <p>${bookmark.description}</p>
     <time datetime="${bookmark.createdAt}">${formatDate(bookmark.createdAt)}</time>
@@ -64,14 +46,13 @@ function createBookmarkCard(bookmark) {
       <button class="copy-btn">Copy URL 🔗</button>
       <button class="delete-btn">Delete 🗑️</button>
     </div>
-    `;
+  `;
 
   const copyBtn = article.querySelector(".copy-btn");
   const likeBtn = article.querySelector(".like-btn");
-  const likeCount = article.querySelector(".like-count");
   const deleteBtn = article.querySelector(".delete-btn");
 
-  // TASK C-4: copy URL button behaviour
+  // Copy URL
   copyBtn.addEventListener("click", () => {
     navigator.clipboard.writeText(bookmark.url).then(() => {
       copyBtn.textContent = "Copied!";
@@ -79,16 +60,15 @@ function createBookmarkCard(bookmark) {
     });
   });
 
-  // TASK C-5: like button behaviour
+  // Like bookmark
   likeBtn.addEventListener("click", async () => {
-    const userId = document.getElementById("user-select").value;
     await likeBookmark(userId, bookmark.id);
     const updated = await getBookmarks(userId);
-    renderBookmarks(updated);
+    renderBookmarks(updated, userId);
   });
 
-  // TASK C-6: delete button behaviour
-  deleteBtn.addEventListener("click", async () => {
+  // Delete bookmark
+  deleteBtn.addEventListener("click", () => {
     const confirmed = confirm(
       `Delete "${bookmark.title}"? This cannot be undone.`,
     );
