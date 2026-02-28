@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A.Y.I SHARED BOOKMARK</title>
+    <meta
+      name="description"
+      content="A.Y.I Shared Bookmark: Save, share, and manage bookmarks with ease. View bookmarks by user, like, copy, or add new links."
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -13,38 +17,69 @@
         <a href="index.html" id="home-link">A.Y.I SHARED BOOKMARK</a>
       </h1>
 
-      <!--DROPDOWN -->
+      <!-- DROPDOWN -->
       <div class="user-selector">
         <label for="user-select">Viewing as</label>
-        <select name="user-id" id="user-select">
+        <select
+          name="user-id"
+          id="user-select"
+          aria-label="Select user to view bookmarks"
+        >
           <option value="" disabled selected>Pick A User</option>
         </select>
       </div>
 
-      <nav class="navigations">
+      <nav class="navigations" aria-label="Main navigation">
         <a href="about.html">
-          <button type="button">About</button>
+          <button type="button" aria-label="About page">About</button>
         </a>
-        <a href="contact.html"><button type="button">Contact</button></a>
+        <a href="contact.html">
+          <button type="button" aria-label="Contact page">Contact</button>
+        </a>
       </nav>
     </header>
 
     <main>
-      <!--FORM-->
-      <button id="toggle-btn">👇 Create New Bookmark</button>
+      <!-- FORM TOGGLE -->
+      <button
+        id="toggle-btn"
+        aria-expanded="false"
+        aria-controls="form-container"
+      >
+        👇 Create New Bookmark
+      </button>
+
+      <!-- FORM CONTAINER -->
       <div id="form-container" class="hidden">
         <form id="bookmark-form" class="bookmark-form">
           <div class="form-group">
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              required
+              aria-required="true"
+            />
           </div>
           <div class="form-group">
             <label for="url">URL:</label>
-            <input type="url" id="url" name="url" required />
+            <input
+              type="url"
+              id="url"
+              name="url"
+              required
+              aria-required="true"
+            />
           </div>
           <div class="form-group">
             <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea>
+            <textarea
+              id="description"
+              name="description"
+              required
+              aria-required="true"
+            ></textarea>
           </div>
           <div class="form-group">
             <button type="submit">Add Bookmark</button>
@@ -52,10 +87,12 @@
         </form>
       </div>
 
-      <!-- BOOKMARK LIST-->
-      <div id="bookmark-list"></div>
+      <!-- BOOKMARK LIST -->
+      <div id="bookmark-list" aria-live="polite"></div>
     </main>
+
     <script type="module" src="script.js"></script>
+
     <footer>
       <p>
         &copy; 2026 A.Y.I SHARED BOOKMARK, GROUP PROJECT. All rights reserved.
