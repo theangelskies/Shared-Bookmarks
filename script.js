@@ -1,4 +1,3 @@
-// script.js
 import { getUsers, addBookmark, getBookmarks } from "./bookmarks.js";
 import { renderBookmarks } from "./render.js";
 
