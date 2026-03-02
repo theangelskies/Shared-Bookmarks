@@ -1,14 +1,14 @@
 /* VARIABLES */
 :root {
   /* Colors */
-  --primary-color: #e2529a;
+  --primary-color: #c0397e;
   --secondary-color: #ffffff;
   --text-color: #333333;
   --header-bg: #111111;
   --header-text: #ffffff;
-  --button-bg: #e2529a;
+  --button-bg: #971656;
   --button-text: #ffffff;
-  --button-hover: #c0397e;
+  --button-hover: #971656;
   --card-bg: #fff5fa;
   --card-border: #ffd6ea;
   --shadow-color: rgba(0, 0, 0, 0.1);
