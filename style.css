@@ -340,8 +340,8 @@ footer {
 
 .team-members {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: var(--space-lg);
   margin-top: var(--space-lg);
 }
@@ -353,7 +353,8 @@ footer {
   box-shadow: 0 4px 6px var(--shadow-color);
   padding: var(--space-lg);
   text-align: center;
-  width: 300px;
+  width: 80%;
+  max-width: 600px;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
