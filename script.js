@@ -28,9 +28,13 @@ function handleUserSelection() {
   userSelect.addEventListener("change", async () => {
     const userId = userSelect.value;
 
-    // Show the form container if a user is selected
-    formContainer.style.display = userId ? "block" : "none";
-
+    if (userId) {
+      formContainer.classList.remove("hidden");
+      toggleBtn.textContent = "👆 Hide Bookmark Form";
+    } else {
+      formContainer.classList.add("hidden");
+      toggleBtn.textContent = "👇 Create New Bookmark";
+    }
     // Load and render bookmarks
     const bookmarks = userId ? await getBookmarks(userId) : [];
     renderBookmarks(bookmarks, userId);
@@ -63,8 +67,19 @@ function handleFormSubmit() {
 
 // --- Toggle form visibility ---
 function handleToggleBtn() {
+  // Sync button text on load
+  toggleBtn.textContent = formContainer.classList.contains("hidden")
+    ? "👇 Create New Bookmark"
+    : "👆 Hide Bookmark Form";
+
   toggleBtn.addEventListener("click", () => {
     formContainer.classList.toggle("hidden");
+
+    if (formContainer.classList.contains("hidden")) {
+      toggleBtn.textContent = "👇 Create New Bookmark";
+    } else {
+      toggleBtn.textContent = "👆 Hide Bookmark Form";
+    }
   });
 }
 

@@ -209,6 +209,11 @@ h2 {
 }
 
 /* BOOKMARK CARD */
+#bookmark-list .welcome-msg {
+  text-align: center;
+  margin-top: var(--space-md);
+}
+
 #bookmark-list article {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
