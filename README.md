@@ -32,13 +32,12 @@ Write unit tests to verify important logic
 Deploy the website online with automatic deployment from GitHub
 
 # Features
-User Selection
+### User Selection
 
 The application includes a dropdown menu with five users. Selecting a user loads and displays the bookmarks associated with that user.
 
 If the selected user has no bookmarks saved, the application displays a message informing the user that no bookmarks are currently available.
-
-Bookmark Display
+### Bookmark Display
 
 Each bookmark displays the following information:
 
@@ -50,7 +49,7 @@ Timestamp – shows when the bookmark was created
 
 Bookmarks are displayed in reverse chronological order, meaning the most recently added bookmarks appear first.
 
-Bookmark Actions
+### Bookmark Actions
 
 Each bookmark includes interactive actions:
 
@@ -70,7 +69,11 @@ Every time the button is clicked, the counter increases
 
 The like count is stored so that it persists across sessions
 
-Add New Bookmarks
+Delete Bookmark
+
+To delete bookmark no longer needed
+
+### Add New Bookmarks
 
 Users can add new bookmarks using a form that includes the following inputs:
 
