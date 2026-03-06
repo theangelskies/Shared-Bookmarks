@@ -1,4 +1,4 @@
-Shared Bookmarks – A.Y.I Project
+# Shared Bookmarks – A.Y.I Project
 
 As developers, we often read useful articles and resources online. It can be helpful to save these links so we can revisit them later and share them with others. The Shared Bookmarks web application allows users to store, view, and interact with bookmarked links.
 
@@ -173,7 +173,7 @@ Readable content structure
 
 The goal is to achieve a Lighthouse Accessibility score of 100.
 
-Deployment
+# Deployment
 
 The website is hosted using Netlify.
 
@@ -185,7 +185,7 @@ Netlify automatically builds and deploys the site
 
 The live website updates whenever new changes are merged
 
-Authors
+# Authors
 
 A.Y.I Shared Bookmark – Group Project
 2026
