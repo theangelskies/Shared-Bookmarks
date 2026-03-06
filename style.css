@@ -74,11 +74,13 @@ h2 {
   padding: var(--space-md);
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch
+
 }
 
 .website-header .main-title {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
+  width: 100%;
 }
 
 main{
@@ -123,6 +125,12 @@ main{
   color: var(--header-text);
 }
 
+.navigations {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 .navigations a {
   color: var(--header-text);
   margin-left: var(--space-md);
@@ -138,6 +146,7 @@ main{
   background-color: var(--header-bg);
   color: var(--header-text);
   border: none;
+  display: block;
   margin: var(--space-md);
   padding: var(--space-sm) var(--space-md);
   font-family: var(--font-main);
@@ -334,6 +343,7 @@ footer {
   padding: var(--space-sm) var(--space-md);
   cursor: pointer;
   font-family: var(--font-main);
+  font-size: 0.9rem;
   font-weight: 700;
   transition:
     background-color 0.3s,
@@ -404,9 +414,94 @@ footer {
   flex: 0 0 300px;
 }
 
+/* --- RESPONSIVE STYLES --- */
 @media (max-width: 768px) {
+  /* Header: stack items vertically on small screens */
+  .website-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .navigations {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navigations a,
+  .navigations button {
+    margin: var(--space-xs) 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .user-selector {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .user-selector select {
+    min-width: unset;
+    flex: 1;
+  }
+
+  /* Bookmark form: full width */
+  .bookmark-form {
+    width: 90%;
+    padding: var(--space-md);
+    margin: var(--space-md) auto;
+  }
+
+  /* Bookmark cards: full width */
+  #bookmark-list article {
+    width: 95%;
+    padding: var(--space-md);
+    margin: var(--space-sm) auto;
+  }
+
+  /* Team members stack vertically */
   .team-members {
     flex-direction: column;
-    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .member-card {
+    width: 90%;
+    max-width: unset;
+    padding: var(--space-md);
+  }
+
+  .member-photo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .about-main {
+    width: 95%;
+    padding: var(--space-md);
+  }
+
+  /* Buttons in forms and navigation full width */
+  .bookmark-form button,
+  .navigations button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet adjustments */
+  .team-members {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .member-card {
+    width: 45%;
+    margin: var(--space-md);
+  }
+
+  .bookmark-form {
+    width: 80%;
   }
 }
