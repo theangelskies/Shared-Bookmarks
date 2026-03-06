@@ -1,33 +1,113 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>The Bookmarks</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A.Y.I SHARED BOOKMARK</title>
+    <meta
+      name="description"
+      content="A.Y.I Shared Bookmark: Save, share, and manage bookmarks with ease. View bookmarks by user, like, copy, or add new links."
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>The Bookmarks</h1>
-    <!--DROPDOWN PERSON B-->
-    <label for="user-select">Select User:</label>
-    <select id="user-select">
-      <option value="">-- Pick A User --</option>
-    </select>
+    <!-- HEADER -->
+    <header class="website-header">
+      <h1 class="main-title">
+        <a href="index.html" id="home-link">A.Y.I SHARED BOOKMARK</a>
+      </h1>
 
-    <!--FORM PERSON B-->
-    <form id="bookmark-form">
-      <label for="input-title">Title</label>
-      <input type="text" id="input-title" required/>
+      <!-- DROPDOWN -->
+      <div class="user-selector">
+        <label for="user-select">Viewing as</label>
+        <select
+          name="user-id"
+          id="user-select"
+          aria-label="Select user to view bookmarks"
+        >
+          <option value="" disabled selected>Pick A User</option>
+        </select>
+      </div>
 
-      <label for="input-url">URL</label>
-      <input type="url" id="input-url" required/>
+      <nav class="navigations" aria-label="Main navigation">
+        <button
+          type="button"
+          aria-label="About page"
+          onclick="location.href = '/about.html'"
+        >
+          About
+        </button>
 
-      <label for="input-desc">Description</label>
-      <input type="text" id="input-desc" required/>
-    
-      <button type ="submit">Add Bookmark</button>
-    </form>
+        <button
+          type="button"
+          aria-label="Contact page"
+          onclick="location.href = '/contact.html'"
+        >
+          Contact
+        </button>
+      </nav>
+    </header>
 
-    <!-- BOOKMARK LIST PERSON C-->
-    <div id="bookmark-list"></div>
-    
+    <main>
+      <!-- FORM TOGGLE -->
+      <button
+        id="toggle-btn"
+        aria-expanded="false"
+        aria-controls="form-container"
+      >
+        👇 Create New Bookmark
+      </button>
+
+      <!-- FORM CONTAINER -->
+      <div id="form-container" class="hidden">
+        <form id="bookmark-form" class="bookmark-form">
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div class="form-group">
+            <label for="url">URL:</label>
+            <input
+              type="url"
+              id="url"
+              name="url"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea
+              id="description"
+              name="description"
+              required
+              aria-required="true"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit">Add Bookmark</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- BOOKMARK LIST -->
+      <div id="bookmark-list" aria-live="polite">
+        <h2 class="welcome-msg">🚀 Welcome to A.Y.I Shared Bookmark</h2>
+        <p class="welcome-msg"><strong>Select a user above</strong> to view bookmarks or create a new one now 👆</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2026 A.Y.I SHARED BOOKMARK, GROUP PROJECT. All rights reserved.
+      </p>
+    </footer>
     <script type="module" src="script.js"></script>
   </body>
 </html>

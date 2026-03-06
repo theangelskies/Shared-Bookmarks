@@ -1,62 +1,92 @@
-// This is a placeholder file which shows how you can access functions defined in other files.
-// It can be loaded into index.html.
-// You can delete the contents of the file once you have understood how it works.
-// Note that when running locally, in order to open a web page which uses modules, you must serve the directory over HTTP e.g. with https://www.npmjs.com/package/http-server
-// You can't open the index.html file using a file:// URL.
-
-import { getUserIds } from "./storage.js";
-
-window.onload = function () {
-  const users = getUserIds();
-  document.querySelector("body").innerText = `There are ${users.length} users`;
-};
-
-// ============================================
-// PERSON B — YOUR RESPONSIBILITY IS THIS FILE
-// ============================================
-// Your job: listen for events → call the right functions
-// You do NOT write data logic
-// You do NOT write HTML rendering
-// ============================================
-
 import { getUsers, addBookmark, getBookmarks } from "./bookmarks.js";
 import { renderBookmarks } from "./render.js";
 
-// ============================================
-// TASK B-1: populateDropdown()
-// - call getUsers() to get the list of user ids
-// - for each userId, create an <option> element
-// - set the option value to the userId
-// - set the option text to something readable e.g. "User 1"
-// - append each option to the #user-select dropdown
-// ============================================
-function populateDropdown() {}
+// --- DOM elements ---
+const userSelect = document.getElementById("user-select");
+const formContainer = document.getElementById("form-container");
+const bookmarkForm = document.getElementById("bookmark-form");
+const toggleBtn = document.getElementById("toggle-btn");
 
-// ============================================
-// TASK B-2: dropdown onChange event
-// - read the selected userId from the dropdown
-// - if a user is selected:
-//     show the form
-//     call getBookmarks(userId)
-//     pass result to renderBookmarks()
-// - if no user is selected:
-//     hide the form
-//     call renderBookmarks with empty array
-// ============================================
+// --- Populate the user dropdown ---
+function populateDropdown() {
+  const users = getUsers();
 
-// ============================================
-// TASK B-3: form submit event
-// - prevent the page from reloading
-// - read userId from the dropdown
-// - if no user selected, show an alert and stop
-// - read url, title, description from the form inputs
-// - call addBookmark() with all values
-// - reset the form inputs after submit
-// - call getBookmarks() again to get the fresh list
-// - pass fresh list to renderBookmarks()
-// ============================================
+  // Clear previous options except the default
+  userSelect.innerHTML =
+    '<option value="" disabled selected>Pick A User</option>';
 
-// ============================================
-// TASK B-4: page load
-// - call populateDropdown() when the page first loads
-// ============================================
+  users.forEach((userId) => {
+    const option = document.createElement("option");
+    option.value = userId;
+    option.textContent = `User ${userId}`;
+    userSelect.appendChild(option);
+  });
+}
+
+// --- Handle user selection ---
+function handleUserSelection() {
+  userSelect.addEventListener("change", async () => {
+    const userId = userSelect.value;
+
+    if (userId) {
+      formContainer.classList.remove("hidden");
+      toggleBtn.textContent = "👆 Hide Bookmark Form";
+    } else {
+      formContainer.classList.add("hidden");
+      toggleBtn.textContent = "👇 Create New Bookmark";
+    }
+    // Load and render bookmarks
+    const bookmarks = userId ? await getBookmarks(userId) : [];
+    renderBookmarks(bookmarks, userId);
+  });
+}
+
+// --- Handle form submit ---
+function handleFormSubmit() {
+  bookmarkForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const userId = userSelect.value;
+    if (!userId) return alert("Please select a user first.");
+
+    const title = document.getElementById("title").value;
+    const url = document.getElementById("url").value;
+    const description = document.getElementById("description").value;
+
+    // Add bookmark
+    addBookmark(userId, url, title, description);
+
+    // Reset form
+    bookmarkForm.reset();
+
+    // Render updated bookmarks
+    const bookmarks = await getBookmarks(userId);
+    renderBookmarks(bookmarks, userId);
+  });
+}
+
+// --- Toggle form visibility ---
+function handleToggleBtn() {
+  // Sync button text on load
+  toggleBtn.textContent = formContainer.classList.contains("hidden")
+    ? "👇 Create New Bookmark"
+    : "👆 Hide Bookmark Form";
+
+  toggleBtn.addEventListener("click", () => {
+    formContainer.classList.toggle("hidden");
+
+    if (formContainer.classList.contains("hidden")) {
+      toggleBtn.textContent = "👇 Create New Bookmark";
+    } else {
+      toggleBtn.textContent = "👆 Hide Bookmark Form";
+    }
+  });
+}
+
+// --- Page load ---
+window.addEventListener("DOMContentLoaded", () => {
+  populateDropdown();
+  handleUserSelection();
+  handleFormSubmit();
+  handleToggleBtn();
+});
