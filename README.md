@@ -1,71 +1,194 @@
-# Project: Shared Bookmarks
+# Shared Bookmarks – A.Y.I Project
 
-As developers, we spend a lot of time reading articles on the web and we often want to record useful links to come back to them later. It is fun to share your bookmarks with others so that they can find interesting and useful links too.
+As developers, we often read useful articles and resources online. It can be helpful to save these links so we can revisit them later and share them with others. The Shared Bookmarks web application allows users to store, view, and interact with bookmarked links.
 
-Here are some examples of bookmark sites:
+This project was built using HTML, CSS, and JavaScript, focusing mainly on implementing the required logic rather than complex UI design.
+# Live Website
 
-- [Jason Kottke](https://kottke.org/)
-- [Jeremy Keith](https://adactio.com/links)
-- [Andy Baio](https://waxy.org/category/links/)
-- [Ali Smith](https://bookmarks.alasdairsmith.co.uk/)
+https://oursharedbookmark.netlify.app/
 
-Your task is to write code which allows a user to save a link with a short description and share them with others.
+# GitHub Repository
 
-You should make a frontend, which displays a list of bookmarked links and the user's description. A user can create new bookmarks by submitting a form with the URL and the description. You should use HTML and JavaScript for this. We want to focus on your ability to create the correct logic and not spend time on creating the perfect UI. You are allowed to use CSS, but you are strongly advised to focus on the logic, and only add styling when you are finished. You will not get any credit for styling.
+https://github.com/theangelskies/Shared-Bookmarks
 
-## Supplied scaffolding
+# Project Objectives
 
-We have supplied a few sample files in the repo to demonstrate how you can define functions in one file and use them from another file. Feel free to use these files in your solution if you want, or to just use them for inspiration for your own solution.
+The main objectives of this project were to:
 
-Note that when running locally, in order to open a web page which uses modules, you must serve the directory over HTTP e.g. with https://www.npmjs.com/package/http-server - you can't open the `index.html` file using a `file://` URL.
+Build a web application using HTML, CSS, and JavaScript
 
-We have also provided a `storage.js` file, which contains four functions to help with data storage. `storage.js` is a file containing four functions:
+Implement bookmark management functionality
 
-- `getUserIds()`: when called, returns an array of strings, each of which is a user id
-- `getData(userId)`: when called with a user id string as an argument, returns an array of objects, each of which represents a bookmark that belongs to the user
-- `setData(userId, data)`: when called with a user id string and a data object as arguments, it will store the data for the user. The object should contain information about the bookmark, such as the URL, title and description. The function does not return anything
-- `clearData(userId)`: when called with a user id string as an argument, it will clear any stored data associated with the user id. This is provided to help with development, and is not required in the final code
+Allow multiple users to view and manage bookmarks
 
-**Note**: None of the storage functions perform any validation or de-duplication, so ensure that you are sending the correct data before storing it.
+Store bookmark data using the provided storage functions
 
-## Requirements
+Implement interactive features such as copying URLs and liking bookmarks
 
-You must submit both a link to your GitHub repo, and a link to the deployed website.
+Ensure the website is accessible and keyboard-friendly
 
-Your website must be hosted on the internet, and must be automatically deployed when you merge changes to your GitHub repo.
+Write unit tests to verify important logic
 
-Your website must include a drop-down to select a user to display information for. When a user is selected, you must display the list of bookmarks for that user. If there are no bookmarks for the user, you should present a message explaining this.
+Deploy the website online with automatic deployment from GitHub
 
-You **must not** implement any kind of authentication. Just a drop-down to choose which user’s information to display. You **must not** implement data storage yourself, as we have provided that for you.
+# Features
+### User Selection
 
-After picking a user, your website should display the list of bookmarks in reverse chronological order. For each bookmark, it should display the title and description of the bookmark. The title should be hyperlink to the URL of the bookmark. The timestamp at which the bookmark was created should be displayed.
+The application includes a dropdown menu with five users. Selecting a user loads and displays the bookmarks associated with that user.
 
-Each bookmark should also have:
-- A button which, when clicked, copies the URL to the clipboard.
-- A like counter/button. When a bookmark is first saved, its like count should be 0. Each time a user clicks the like button, that number should go up by one, and be displayed. This like count should be persisted such that closing the page and coming back to it, it is preserved.
+If the selected user has no bookmarks saved, the application displays a message informing the user that no bookmarks are currently available.
+### Bookmark Display
 
-Your website must include a form with text inputs for the URL, title, and description, and submit button that allows a user to add a new topic. This form must be accessible, so for example, a user using the keyboard should be able to submit it without using a mouse.
+Each bookmark displays the following information:
 
-After the new data has been stored, the updated list of bookmarks must be displayed (including the new bookmark) for the relevant user.
+Title – displayed as a clickable link that opens the bookmarked webpage
 
-Your GitHub repository must contain unit tests which demonstrate that your code works. End to end tests are optional.
+Description – short explanation of the bookmarked resource
 
-Every view of your website must be accessible (i.e. for each user, whether or not they have bookmarks, etc). We will test this by making sure that "Snapshot" mode of Lighthouse gives 100% accessibility for any view we look at.
+Timestamp – shows when the bookmark was created
 
-## Rubric
+Bookmarks are displayed in reverse chronological order, meaning the most recently added bookmarks appear first.
 
-All of the below requirements must be met for the project to be considered complete:
+### Bookmark Actions
 
-- The website must contain a drop-down which lists five users
-- Selecting a user must display the list of bookmarks for the relevant user
-- If there are no bookmarks for the selected user, a message is displayed to explain this
-- The list of bookmarks must be shown in reverse chronological order
-- Each bookmark has a title, description and created at timestamp displayed
-- Each bookmark’s title is a link to the bookmark’s URL
-- Each bookmark's "Copy to clipboard" button must copy the URL of the bookmark
-- Each bookmark's like counter works independently, and persists data across sessions
-- The website must contain a form with inputs for a URL, a title, and a description. The form should have a submit button.
-- Submitting the form adds a new bookmark for the relevant user only
-- After creating a new bookmark, the list of bookmarks for the current user is shown, including the new bookmark
-- The website must score 100 for accessibility in Lighthouse
-- Unit tests must be written for at least one non-trivial function
+Each bookmark includes interactive actions:
+
+Copy URL
+
+A Copy button allows users to copy the bookmark URL directly to the clipboard.
+
+This makes it easy to quickly share links without manually selecting and copying them.
+
+Like Button
+
+Each bookmark includes a Like button and counter.
+
+The like counter starts at 0
+
+Every time the button is clicked, the counter increases
+
+The like count is stored so that it persists across sessions
+
+Delete Bookmark
+
+To delete bookmark no longer needed
+
+### Add New Bookmarks
+
+Users can add new bookmarks using a form that includes the following inputs:
+
+URL
+
+Title
+
+Description
+
+After submitting the form:
+
+The bookmark is saved for the currently selected user
+
+The bookmark list refreshes automatically
+
+The new bookmark appears at the top of the list
+
+The form is designed to be accessible, meaning it can be used with a keyboard and screen readers.
+
+# Technologies Used
+
+The project was developed using the following technologies:
+
+HTML5 – for structuring the web pages
+
+CSS3 – for basic styling and layout
+
+JavaScript (ES Modules) – for application logic
+
+Node.js – used for running tests
+
+Git & GitHub – version control and collaboration
+
+Netlify – hosting and automatic deployment
+
+# Data Storage
+
+The application uses the provided storage.js module to manage bookmark data.
+
+The following functions are used:
+
+getUserIds() – retrieves the list of users
+
+getData(userId) – retrieves bookmarks for a specific user
+
+setData(userId, data) – stores bookmark data for a user
+
+clearData(userId) – clears stored data (used during development)
+
+The application does not implement its own storage system, as the provided functions handle persistence.
+
+# Project Structure - Shared-Bookmarks
+```
+Shared-Bookmarks
+│
+├── assets/               # Images and other assets
+│
+├── index.html            # Main application page
+├── about.html            # About page
+├── contact.html          # Contact page
+│
+├── style.css             # Application styling
+│
+├── script.js             # Main application logic
+├── render.js             # Bookmark rendering functions
+├── bookmarks.js          # Bookmark data logic
+├── storage.js            # Provided storage functions
+│
+├── bookmarks.test.js     # Unit tests
+│
+├── package.json          # Project configuration
+├── package-lock.json
+│
+└── README.md
+```
+# Testing
+
+Unit tests were created to verify that the bookmark logic works correctly.
+
+Tests ensure that bookmark functions behave as expected and help detect potential issues during development.
+
+To run the tests:
+
+npm test
+# Accessibility
+
+Accessibility was an important requirement for this project.
+
+The website was designed to follow accessibility best practices:
+
+Proper HTML semantics
+
+Labels for form inputs
+
+Keyboard-friendly navigation
+
+Clear button labels
+
+Readable content structure
+
+The goal is to achieve a Lighthouse Accessibility score of 100.
+
+# Deployment
+
+The website is hosted using Netlify.
+
+Deployment is automated:
+
+Code is pushed to the GitHub repository
+
+Netlify automatically builds and deploys the site
+
+The live website updates whenever new changes are merged
+
+# Authors
+
+A.Y.I Shared Bookmark – Group Project
+2026
