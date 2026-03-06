@@ -3,15 +3,15 @@
 As developers, we often read useful articles and resources online. It can be helpful to save these links so we can revisit them later and share them with others. The Shared Bookmarks web application allows users to store, view, and interact with bookmarked links.
 
 This project was built using HTML, CSS, and JavaScript, focusing mainly on implementing the required logic rather than complex UI design.
-Live Website
+# Live Website
 
 https://oursharedbookmark.netlify.app/
 
-GitHub Repository
+# GitHub Repository
 
 https://github.com/theangelskies/Shared-Bookmarks
 
-Project Objectives
+# Project Objectives
 
 The main objectives of this project were to:
 
@@ -31,7 +31,7 @@ Write unit tests to verify important logic
 
 Deploy the website online with automatic deployment from GitHub
 
-Features
+# Features
 User Selection
 
 The application includes a dropdown menu with five users. Selecting a user loads and displays the bookmarks associated with that user.
@@ -90,7 +90,7 @@ The new bookmark appears at the top of the list
 
 The form is designed to be accessible, meaning it can be used with a keyboard and screen readers.
 
-Technologies Used
+# Technologies Used
 
 The project was developed using the following technologies:
 
@@ -106,7 +106,7 @@ Git & GitHub – version control and collaboration
 
 Netlify – hosting and automatic deployment
 
-Data Storage
+# Data Storage
 
 The application uses the provided storage.js module to manage bookmark data.
 
@@ -122,7 +122,7 @@ clearData(userId) – clears stored data (used during development)
 
 The application does not implement its own storage system, as the provided functions handle persistence.
 
-Project Structure - Shared-Bookmarks
+# Project Structure - Shared-Bookmarks
 ```
 Shared-Bookmarks
 │
@@ -146,7 +146,7 @@ Shared-Bookmarks
 │
 └── README.md
 ```
-Testing
+# Testing
 
 Unit tests were created to verify that the bookmark logic works correctly.
 
@@ -155,7 +155,7 @@ Tests ensure that bookmark functions behave as expected and help detect potentia
 To run the tests:
 
 npm test
-Accessibility
+# Accessibility
 
 Accessibility was an important requirement for this project.
 
