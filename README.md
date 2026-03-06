@@ -3,65 +3,76 @@ Shared Bookmarks – A.Y.I Project
 As developers, we often read useful articles and resources online. It can be helpful to save these links so we can revisit them later and share them with others. The Shared Bookmarks web application allows users to store, view, and interact with bookmarked links.
 
 This project was built using HTML, CSS, and JavaScript, focusing mainly on implementing the required logic rather than complex UI design.
-
 Live Website
 
-🌐 https://oursharedbookmark.netlify.app/
+https://oursharedbookmark.netlify.app/
 
 GitHub Repository
 
-(Add your repo link here)
+https://github.com/theangelskies/Shared-Bookmarks
 
-Project Overview
+Project Objectives
 
-The A.Y.I Shared Bookmark website allows users to:
+The main objectives of this project were to:
 
-Select a user from a dropdown list
+Build a web application using HTML, CSS, and JavaScript
 
-View bookmarks shared by that user
+Implement bookmark management functionality
 
-Add new bookmarks using a form
+Allow multiple users to view and manage bookmarks
 
-Copy bookmark links to the clipboard
+Store bookmark data using the provided storage functions
 
-Like bookmarks
+Implement interactive features such as copying URLs and liking bookmarks
 
-Each bookmark displays:
+Ensure the website is accessible and keyboard-friendly
 
-Title (as a clickable link)
+Write unit tests to verify important logic
 
-Description
-
-Creation timestamp
-
-Copy URL button
-
-Like counter
-
-Bookmarks are displayed in reverse chronological order, meaning the newest bookmarks appear first.
+Deploy the website online with automatic deployment from GitHub
 
 Features
 User Selection
 
-A dropdown menu allows users to choose which user's bookmarks to view.
+The application includes a dropdown menu with five users. Selecting a user loads and displays the bookmarks associated with that user.
+
+If the selected user has no bookmarks saved, the application displays a message informing the user that no bookmarks are currently available.
 
 Bookmark Display
 
-Bookmarks show:
+Each bookmark displays the following information:
 
-Title (clickable link)
+Title – displayed as a clickable link that opens the bookmarked webpage
 
-Description
+Description – short explanation of the bookmarked resource
 
-Creation date and time
+Timestamp – shows when the bookmark was created
 
-Like button with counter
+Bookmarks are displayed in reverse chronological order, meaning the most recently added bookmarks appear first.
 
-Copy link button
+Bookmark Actions
 
-Add Bookmark
+Each bookmark includes interactive actions:
 
-Users can add a new bookmark by filling out a form with:
+Copy URL
+
+A Copy button allows users to copy the bookmark URL directly to the clipboard.
+
+This makes it easy to quickly share links without manually selecting and copying them.
+
+Like Button
+
+Each bookmark includes a Like button and counter.
+
+The like counter starts at 0
+
+Every time the button is clicked, the counter increases
+
+The like count is stored so that it persists across sessions
+
+Add New Bookmarks
+
+Users can add new bookmarks using a form that includes the following inputs:
 
 URL
 
@@ -69,79 +80,128 @@ Title
 
 Description
 
-After submission, the bookmark is saved and immediately displayed.
+After submitting the form:
 
-Copy to Clipboard
+The bookmark is saved for the currently selected user
 
-Each bookmark includes a copy button that copies the URL to the user's clipboard.
+The bookmark list refreshes automatically
 
-Like Counter
+The new bookmark appears at the top of the list
 
-Bookmarks include a like button. Each click increases the like count, and the value persists across sessions.
-
-Data Storage
-
-This project uses the provided storage.js module which includes:
-
-getUserIds() – returns available user IDs
-
-getData(userId) – retrieves bookmarks for a user
-
-setData(userId, data) – stores bookmark data
-
-clearData(userId) – clears stored data (used for development)
-
-No custom storage system was implemented, as required by the project instructions.
-
-Accessibility
-
-Accessibility was considered throughout development:
-
-Forms are fully keyboard accessible
-
-Labels are connected to inputs
-
-Semantic HTML elements are used
-
-Lighthouse accessibility score: 100
-
-Unit Testing
-
-Unit tests were written for bookmark logic functions to verify that the bookmark creation and data handling work correctly.
-
-Tests were implemented using Node.js testing and ensure the core functionality behaves as expected.
-
-Deployment
-
-The project is hosted using Netlify.
-
-Deployment is automatically triggered when updates are pushed to the GitHub repository.
+The form is designed to be accessible, meaning it can be used with a keyboard and screen readers.
 
 Technologies Used
 
-HTML
+The project was developed using the following technologies:
 
-CSS
+HTML5 – for structuring the web pages
 
-JavaScript (ES Modules)
+CSS3 – for basic styling and layout
 
-Node.js (for unit testing)
+JavaScript (ES Modules) – for application logic
 
-Netlify (deployment)
+Node.js – used for running tests
 
-Git & GitHub
+Git & GitHub – version control and collaboration
+
+Netlify – hosting and automatic deployment
+
+Data Storage
+
+The application uses the provided storage.js module to manage bookmark data.
+
+The following functions are used:
+
+getUserIds() – retrieves the list of users
+
+getData(userId) – retrieves bookmarks for a specific user
+
+setData(userId, data) – stores bookmark data for a user
+
+clearData(userId) – clears stored data (used during development)
+
+The application does not implement its own storage system, as the provided functions handle persistence.
 
 Project Structure
-project-folder
+Shared-Bookmarks
+│
+├── assets/               # Images and other assets
+│
+├── index.html            # Main application page
+├── about.html            # About page
+├── contact.html          # Contact page
+│
+├── style.css             # Application styling
+│
+├── script.js             # Main application logic
+├── render.js             # Bookmark rendering functions
+├── bookmarks.js          # Bookmark data logic
+├── storage.js            # Provided storage functions
+│
+├── bookmarks.test.js     # Unit tests
+│
+├── package.json          # Project configuration
+├── package-lock.json
+│
+└── README.md
+Testing
+
+Unit tests were created to verify that the bookmark logic works correctly.
+
+Tests ensure that bookmark functions behave as expected and help detect potential issues during development.
+
+To run the tests:
+
+npm test
+Accessibility
+
+Accessibility was an important requirement for this project.
+
+The website was designed to follow accessibility best practices:
+
+Proper HTML semantics
+
+Labels for form inputs
+
+Keyboard-friendly navigation
+
+Clear button labels
+
+Readable content structure
+
+The goal is to achieve a Lighthouse Accessibility score of 100.
+
+Deployment
+
+The website is hosted using Netlify.
+
+Deployment is automated:
+
+Code is pushed to the GitHub repository
+
+Netlify automatically builds and deploys the site
+
+The live website updates whenever new changes are merged
+Shared-Bookmarks
+│
+├── assets/
 │
 ├── index.html
 ├── about.html
 ├── contact.html
+│
 ├── style.css
+│
 ├── script.js
-├── bookmark.js
+├── render.js
 ├── storage.js
+├── bookmarks.js
+│
 ├── bookmarks.test.js
+│
+├── package.json
+├── package-lock.json
+│
 └── README.md
 Authors
 
