@@ -124,6 +124,7 @@ The application does not implement its own storage system, as the provided funct
 
 Project Structure
 Shared-Bookmarks
+```
 │
 ├── assets/               # Images and other assets
 │
@@ -144,6 +145,7 @@ Shared-Bookmarks
 ├── package-lock.json
 │
 └── README.md
+```
 Testing
 
 Unit tests were created to verify that the bookmark logic works correctly.
@@ -182,6 +184,7 @@ Code is pushed to the GitHub repository
 Netlify automatically builds and deploys the site
 
 The live website updates whenever new changes are merged
+```
 Shared-Bookmarks
 │
 ├── assets/
@@ -203,6 +206,7 @@ Shared-Bookmarks
 ├── package-lock.json
 │
 └── README.md
+```
 Authors
 
 A.Y.I Shared Bookmark – Group Project
