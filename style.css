@@ -118,6 +118,8 @@ main{
   cursor: pointer;
   outline: none;
   min-width: 140px;
+  text-align: center;
+
 }
 
 .user-selector select option {
