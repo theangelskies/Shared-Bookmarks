@@ -122,9 +122,9 @@ clearData(userId) – clears stored data (used during development)
 
 The application does not implement its own storage system, as the provided functions handle persistence.
 
-Project Structure
-Shared-Bookmarks
+Project Structure - Shared-Bookmarks
 ```
+Shared-Bookmarks
 │
 ├── assets/               # Images and other assets
 │
@@ -184,29 +184,7 @@ Code is pushed to the GitHub repository
 Netlify automatically builds and deploys the site
 
 The live website updates whenever new changes are merged
-```
-Shared-Bookmarks
-│
-├── assets/
-│
-├── index.html
-├── about.html
-├── contact.html
-│
-├── style.css
-│
-├── script.js
-├── render.js
-├── storage.js
-├── bookmarks.js
-│
-├── bookmarks.test.js
-│
-├── package.json
-├── package-lock.json
-│
-└── README.md
-```
+
 Authors
 
 A.Y.I Shared Bookmark – Group Project
