@@ -1,9 +1,7 @@
 import assert from "node:assert";
 import test from "node:test";
 
-// -------------------------
 // Mock localStorage for Node
-// -------------------------
 global.localStorage = {
   store: {},
   getItem(key) {
@@ -20,9 +18,7 @@ global.localStorage = {
   },
 };
 
-// -------------------------
 // Imports
-// -------------------------
 import { getUserIds, clearData, getData } from "./storage.js";
 import {
   getUsers,
@@ -33,23 +29,17 @@ import {
 
 const TEST_USER = "1";
 
-// -------------------------
 // Helper: wait for ms
-// -------------------------
 function delay(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-// -------------------------
 // Clear storage before each test
-// -------------------------
 test.beforeEach(() => {
   clearData(TEST_USER);
 });
 
-// -------------------------
 // TESTS
-// -------------------------
 
 test("User count is correct", () => {
   assert.equal(getUserIds().length, 5);
