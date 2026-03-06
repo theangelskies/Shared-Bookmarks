@@ -1,71 +1,149 @@
-# Project: Shared Bookmarks
+Shared Bookmarks – A.Y.I Project
 
-As developers, we spend a lot of time reading articles on the web and we often want to record useful links to come back to them later. It is fun to share your bookmarks with others so that they can find interesting and useful links too.
+As developers, we often read useful articles and resources online. It can be helpful to save these links so we can revisit them later and share them with others. The Shared Bookmarks web application allows users to store, view, and interact with bookmarked links.
 
-Here are some examples of bookmark sites:
+This project was built using HTML, CSS, and JavaScript, focusing mainly on implementing the required logic rather than complex UI design.
 
-- [Jason Kottke](https://kottke.org/)
-- [Jeremy Keith](https://adactio.com/links)
-- [Andy Baio](https://waxy.org/category/links/)
-- [Ali Smith](https://bookmarks.alasdairsmith.co.uk/)
+Live Website
 
-Your task is to write code which allows a user to save a link with a short description and share them with others.
+🌐 https://oursharedbookmark.netlify.app/
 
-You should make a frontend, which displays a list of bookmarked links and the user's description. A user can create new bookmarks by submitting a form with the URL and the description. You should use HTML and JavaScript for this. We want to focus on your ability to create the correct logic and not spend time on creating the perfect UI. You are allowed to use CSS, but you are strongly advised to focus on the logic, and only add styling when you are finished. You will not get any credit for styling.
+GitHub Repository
 
-## Supplied scaffolding
+(Add your repo link here)
 
-We have supplied a few sample files in the repo to demonstrate how you can define functions in one file and use them from another file. Feel free to use these files in your solution if you want, or to just use them for inspiration for your own solution.
+Project Overview
 
-Note that when running locally, in order to open a web page which uses modules, you must serve the directory over HTTP e.g. with https://www.npmjs.com/package/http-server - you can't open the `index.html` file using a `file://` URL.
+The A.Y.I Shared Bookmark website allows users to:
 
-We have also provided a `storage.js` file, which contains four functions to help with data storage. `storage.js` is a file containing four functions:
+Select a user from a dropdown list
 
-- `getUserIds()`: when called, returns an array of strings, each of which is a user id
-- `getData(userId)`: when called with a user id string as an argument, returns an array of objects, each of which represents a bookmark that belongs to the user
-- `setData(userId, data)`: when called with a user id string and a data object as arguments, it will store the data for the user. The object should contain information about the bookmark, such as the URL, title and description. The function does not return anything
-- `clearData(userId)`: when called with a user id string as an argument, it will clear any stored data associated with the user id. This is provided to help with development, and is not required in the final code
+View bookmarks shared by that user
 
-**Note**: None of the storage functions perform any validation or de-duplication, so ensure that you are sending the correct data before storing it.
+Add new bookmarks using a form
 
-## Requirements
+Copy bookmark links to the clipboard
 
-You must submit both a link to your GitHub repo, and a link to the deployed website.
+Like bookmarks
 
-Your website must be hosted on the internet, and must be automatically deployed when you merge changes to your GitHub repo.
+Each bookmark displays:
 
-Your website must include a drop-down to select a user to display information for. When a user is selected, you must display the list of bookmarks for that user. If there are no bookmarks for the user, you should present a message explaining this.
+Title (as a clickable link)
 
-You **must not** implement any kind of authentication. Just a drop-down to choose which user’s information to display. You **must not** implement data storage yourself, as we have provided that for you.
+Description
 
-After picking a user, your website should display the list of bookmarks in reverse chronological order. For each bookmark, it should display the title and description of the bookmark. The title should be hyperlink to the URL of the bookmark. The timestamp at which the bookmark was created should be displayed.
+Creation timestamp
 
-Each bookmark should also have:
-- A button which, when clicked, copies the URL to the clipboard.
-- A like counter/button. When a bookmark is first saved, its like count should be 0. Each time a user clicks the like button, that number should go up by one, and be displayed. This like count should be persisted such that closing the page and coming back to it, it is preserved.
+Copy URL button
 
-Your website must include a form with text inputs for the URL, title, and description, and submit button that allows a user to add a new topic. This form must be accessible, so for example, a user using the keyboard should be able to submit it without using a mouse.
+Like counter
 
-After the new data has been stored, the updated list of bookmarks must be displayed (including the new bookmark) for the relevant user.
+Bookmarks are displayed in reverse chronological order, meaning the newest bookmarks appear first.
 
-Your GitHub repository must contain unit tests which demonstrate that your code works. End to end tests are optional.
+Features
+User Selection
 
-Every view of your website must be accessible (i.e. for each user, whether or not they have bookmarks, etc). We will test this by making sure that "Snapshot" mode of Lighthouse gives 100% accessibility for any view we look at.
+A dropdown menu allows users to choose which user's bookmarks to view.
 
-## Rubric
+Bookmark Display
 
-All of the below requirements must be met for the project to be considered complete:
+Bookmarks show:
 
-- The website must contain a drop-down which lists five users
-- Selecting a user must display the list of bookmarks for the relevant user
-- If there are no bookmarks for the selected user, a message is displayed to explain this
-- The list of bookmarks must be shown in reverse chronological order
-- Each bookmark has a title, description and created at timestamp displayed
-- Each bookmark’s title is a link to the bookmark’s URL
-- Each bookmark's "Copy to clipboard" button must copy the URL of the bookmark
-- Each bookmark's like counter works independently, and persists data across sessions
-- The website must contain a form with inputs for a URL, a title, and a description. The form should have a submit button.
-- Submitting the form adds a new bookmark for the relevant user only
-- After creating a new bookmark, the list of bookmarks for the current user is shown, including the new bookmark
-- The website must score 100 for accessibility in Lighthouse
-- Unit tests must be written for at least one non-trivial function
+Title (clickable link)
+
+Description
+
+Creation date and time
+
+Like button with counter
+
+Copy link button
+
+Add Bookmark
+
+Users can add a new bookmark by filling out a form with:
+
+URL
+
+Title
+
+Description
+
+After submission, the bookmark is saved and immediately displayed.
+
+Copy to Clipboard
+
+Each bookmark includes a copy button that copies the URL to the user's clipboard.
+
+Like Counter
+
+Bookmarks include a like button. Each click increases the like count, and the value persists across sessions.
+
+Data Storage
+
+This project uses the provided storage.js module which includes:
+
+getUserIds() – returns available user IDs
+
+getData(userId) – retrieves bookmarks for a user
+
+setData(userId, data) – stores bookmark data
+
+clearData(userId) – clears stored data (used for development)
+
+No custom storage system was implemented, as required by the project instructions.
+
+Accessibility
+
+Accessibility was considered throughout development:
+
+Forms are fully keyboard accessible
+
+Labels are connected to inputs
+
+Semantic HTML elements are used
+
+Lighthouse accessibility score: 100
+
+Unit Testing
+
+Unit tests were written for bookmark logic functions to verify that the bookmark creation and data handling work correctly.
+
+Tests were implemented using Node.js testing and ensure the core functionality behaves as expected.
+
+Deployment
+
+The project is hosted using Netlify.
+
+Deployment is automatically triggered when updates are pushed to the GitHub repository.
+
+Technologies Used
+
+HTML
+
+CSS
+
+JavaScript (ES Modules)
+
+Node.js (for unit testing)
+
+Netlify (deployment)
+
+Git & GitHub
+
+Project Structure
+project-folder
+│
+├── index.html
+├── about.html
+├── contact.html
+├── style.css
+├── script.js
+├── bookmark.js
+├── storage.js
+├── bookmarks.test.js
+└── README.md
+Authors
+
+A.Y.I Shared Bookmark – Group Project
+2026
