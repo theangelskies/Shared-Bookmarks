@@ -11,6 +11,7 @@
   --button-hover: #971656;
   --card-bg: #fff5fa;
   --card-border: #ffd6ea;
+  --title-text-color: #db8ab3;
   --shadow-color: rgba(0, 0, 0, 0.1);
 
   /* Fonts */
@@ -49,7 +50,7 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--title-text-color);
   font-family: var(--font-main);
   font-weight: 500;
   transition:
@@ -74,8 +75,7 @@ h2 {
   padding: var(--space-md);
   display: flex;
   justify-content: space-between;
-  align-items: stretch
-
+  align-items: stretch;
 }
 
 .website-header .main-title {
@@ -83,8 +83,8 @@ h2 {
   width: 100%;
 }
 
-main{
-  flex:1;
+main {
+  flex: 1;
 }
 .main-title {
   font-weight: 900;
@@ -119,7 +119,6 @@ main{
   outline: none;
   min-width: 140px;
   text-align: center;
-
 }
 
 .user-selector select option {
